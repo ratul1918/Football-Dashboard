@@ -1,0 +1,30 @@
+name: Deploy Edge Function to Supabase
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supabase/functions/server/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'supabase/functions/server/**'
+
+jobs:
+  deploy:
+    name: Deploy Edge Function
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+
+      - name: Deploy Edge Function
+        run: supabase functions deploy make-server-7950e5fa
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}

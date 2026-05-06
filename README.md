@@ -374,6 +374,78 @@ The `vercel.json` file handles SPA routing so that refreshing `/teams`, `/matche
 
 > **No Vercel environment variables are required.** The public Supabase credentials are baked into the frontend bundle.
 
+### 8.5 Environment Variables
+
+All environment variables are **optional** but recommended for production:
+
+```bash
+# .env.local or Vercel environment variables
+VITE_SUPABASE_PROJECT_ID=your_project_id      # (optional — defaults to prod)
+VITE_SUPABASE_ANON_KEY=your_anon_key          # (optional — defaults to prod)
+VITE_SENTRY_DSN=your_sentry_dsn               # (optional — for error tracking)
+```
+
+**Public credentials safe to commit:** Supabase anon key is read-only and rate-limited. Never commit service role keys.
+
+### 8.6 GitHub Continuous Deployment
+
+The project includes **automatic deployment on every merge to `main`**:
+
+1. **GitHub Actions runs CI checks:**
+   - Type checking (`pnpm type-check`)
+   - Build verification (`pnpm build`)
+
+2. **On success, Vercel auto-deploys** the production build
+
+**Required GitHub Secrets** (set in repo Settings → Secrets):
+- `VERCEL_TOKEN` — [Get from Vercel dashboard](https://vercel.com/account/tokens)
+- `VERCEL_ORG_ID` — Team/org ID (found in Vercel URL)
+- `VERCEL_PROJECT_ID` — Project ID (created when you import the repo)
+
+### 8.7 Preview Deployments
+
+Every pull request gets an **automatic preview URL** from Vercel:
+- Test changes before merge
+- Share with teammates
+- Preview URL appears in PR checks
+
+### 8.8 Error Tracking with Sentry
+
+Production errors are automatically captured:
+
+1. Create free account at [sentry.io](https://sentry.io)
+2. Create new project → React
+3. Add DSN to Vercel environment variables as `VITE_SENTRY_DSN`
+4. Errors appear in Sentry dashboard in real-time
+
+**No additional code needed** — Sentry is initialized in `src/main.tsx` and configured to capture:
+- Unhandled exceptions
+- Network errors
+- Browser console errors
+- Performance metrics (10% sample in production)
+
+### 8.9 Rolling Back a Deployment
+
+If production breaks, roll back in **1 minute**:
+
+1. Go to [Vercel project dashboard](https://vercel.com)
+2. Deployments → find the previous working build
+3. Click the three dots → "Promote to Production"
+
+Or revert the commit on GitHub, which triggers a new CI/CD deployment.
+
+### 8.10 Deployment Checklist
+
+Before merging to `main`, verify:
+
+- [ ] `pnpm type-check` and `pnpm build` pass locally
+- [ ] Supabase `/health` endpoint is responding
+- [ ] No hardcoded secrets in code
+- [ ] All pages load in preview deployment
+- [ ] Sentry is configured in Vercel environment (if using)
+
+See `.github/DEPLOYMENT_CHECKLIST.md` for full checklist.
+
 ---
 
 ## 9. Dynamic Usage — Admin Guide

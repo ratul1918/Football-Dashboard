@@ -6,10 +6,10 @@
 ---
 
 ## Table of Contents 
-
+ 
 1. [Live Demo & Preview](#1-live-demo--preview)
 2. [Tech Stack](#2-tech-stack)
-3. [Architecture Overview](#3-architecture-overview)
+3. [Architecture Overview](#3-architecture-overview) 
 4. [Project Structure](#4-project-structure)
 5. [Data Model](#5-data-model)
 6. [Local Development](#6-local-development)

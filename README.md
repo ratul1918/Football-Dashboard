@@ -11,7 +11,7 @@
 2. [Tech Stack](#2-tech-stack)
 3. [Architecture Overview](#3-architecture-overview) 
 4. [Project Structure](#4-project-structure)
-5. [Data Model](#5-data-model)
+5. [Data Model](#5-data-model) 
 6. [Local Development](#6-local-development)
 7. [Supabase Backend Setup](#7-supabase-backend-setup)
 8. [Deploying to Vercel](#8-deploying-to-vercel)

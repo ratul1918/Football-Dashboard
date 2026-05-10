@@ -5,7 +5,7 @@
 
 ---
 
-## Table of Contents 
+## Table of Contents
  
 1. [Live Demo & Preview](#1-live-demo--preview)
 2. [Tech Stack](#2-tech-stack)

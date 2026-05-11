@@ -4,7 +4,7 @@
 > All stats are **100 % computed live** from your match data. No manual table editing — just log results and watch the standings update in real time.
 
 --- 
-
+ 
 ## Table of Contents
  
 1. [Live Demo & Preview](#1-live-demo--preview)

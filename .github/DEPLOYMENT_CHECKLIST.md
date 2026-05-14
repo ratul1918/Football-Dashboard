@@ -7,7 +7,7 @@ Before merging to `main` and triggering production deployment:
 - [ ] `pnpm build` completes successfully
 - [ ] No console warnings or errors in local build
 - [ ] Code is formatted and follows project conventions
-
+ 
 ## Security & Configuration
 - [ ] No hardcoded API keys, tokens, or secrets in code
 - [ ] `.env.example` is updated with any new environment variables

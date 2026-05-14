@@ -2,7 +2,7 @@
 
 Before merging to `main` and triggering production deployment:
 
-## Code Quality
+## Code Quality 
 - [ ] `pnpm type-check` passes with no errors
 - [ ] `pnpm build` completes successfully
 - [ ] No console warnings or errors in local build

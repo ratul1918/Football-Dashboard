@@ -1,4 +1,4 @@
-# ⚽ Elite Pitch — Football League Management Dashboard
+ # ⚽ Elite Pitch — Football League Management Dashboard
 
 > A premium, dark-themed football league management dashboard built with React, Supabase, and Vite.  
 > All stats are **100 % computed live** from your match data. No manual table editing — just log results and watch the standings update in real time.
